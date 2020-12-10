@@ -26,11 +26,12 @@ paths:
                     schema:
                         type: string
 
-      responses:
-        '200':
-            content:
-                text/html:
-                    schema:
-                        type: string
-        default:
-          description: Unexpected error
+            responses:
+                '200':
+                    description: all good
+                    content:
+                        text/html:
+                            schema:
+                                type: string
+                default:
+                    description: Unexpected error
