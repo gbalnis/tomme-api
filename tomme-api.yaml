@@ -35,3 +35,34 @@ paths:
                                 type: string
                 default:
                     description: Unexpected error
+
+    /navigation-requested:
+        post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            required:
+                                -   connectionId
+                                -   target
+                            properties:
+                                connectionId:
+                                    type: string
+                                periodStartDate:
+                                    type: string
+                                    format: date
+                                periodEndDate:
+                                    type: string
+                                    format: date
+                                target:
+                                    type: string
+            responses:
+                '302':
+                    description: redirect to Tomme target
+                    headers:
+                        location:
+                            schema:
+                                type: string
+                default:
+                    $ref: '#/responses/Error'
